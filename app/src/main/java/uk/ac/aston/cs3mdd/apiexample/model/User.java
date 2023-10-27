@@ -17,6 +17,8 @@ public class User implements Serializable {
 
     private Picture picture;
 
+    private Location location;
+
     public Picture getPicture() {
         return picture;
     }

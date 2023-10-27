@@ -10,17 +10,20 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import uk.ac.aston.cs3mdd.apiexample.databinding.FragmentSecondBinding;
+import uk.ac.aston.cs3mdd.apiexample.model.User;
 
 public class SecondFragment extends Fragment {
 
     private FragmentSecondBinding binding;
+
+    private User user;
 
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-
+        user = SecondFragmentArgs.fromBundle(getArguments()).getUser();
         binding = FragmentSecondBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
@@ -32,10 +35,12 @@ public class SecondFragment extends Fragment {
         binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 NavHostFragment.findNavController(SecondFragment.this)
                         .navigate(R.id.action_SecondFragment_to_FirstFragment);
             }
         });
+        binding.textviewSecond.setText(user.toString());
     }
 
     @Override
