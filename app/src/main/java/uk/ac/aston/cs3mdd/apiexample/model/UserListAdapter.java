@@ -83,8 +83,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
         public void onClick(View view) {
             FirstFragmentDirections.ActionFirstFragmentToSecondFragment action =
                     FirstFragmentDirections.actionFirstFragmentToSecondFragment(user);
-            Navigation.findNavController(view)
-                    .navigate(action);
+            Navigation.findNavController(view).navigate(action);
         }
     }
 
