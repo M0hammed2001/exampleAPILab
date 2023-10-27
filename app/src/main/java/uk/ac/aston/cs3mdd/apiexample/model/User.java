@@ -88,4 +88,8 @@ public class User implements Serializable {
     public Name getName() {
         return name;
     }
+
+    public Location getLocation() {
+        return location;
+    }
 }
