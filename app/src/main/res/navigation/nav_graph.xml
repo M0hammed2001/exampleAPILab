@@ -24,5 +24,8 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <argument
+            android:name="user"
+            app:argType="uk.ac.aston.cs3mdd.apiexample.model.User" />
     </fragment>
 </navigation>

@@ -10,12 +10,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import uk.ac.aston.cs3mdd.apiexample.FirstFragmentDirections;
 import uk.ac.aston.cs3mdd.apiexample.R;
 
 public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserViewHolder> {
@@ -73,9 +75,17 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
             itemView.setOnClickListener(this);
         }
 
+//        @Override
+//        public void onClick(View v) {
+//            Log.i("AJB", "You clicked " + user.toString());
+//        }
         @Override
-        public void onClick(View v) {
-            Log.i("AJB", "You clicked " + user.toString());
+        public void onClick(View view) {
+            FirstFragmentDirections.ActionFirstFragmentToSecondFragment action =
+                    FirstFragmentDirections.actionFirstFragmentToSecondFragment(user);
+            Navigation.findNavController(view)
+                    .navigate(action);
         }
     }
+
 }
