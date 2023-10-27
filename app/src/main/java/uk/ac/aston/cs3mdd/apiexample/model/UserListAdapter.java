@@ -2,6 +2,7 @@ package uk.ac.aston.cs3mdd.apiexample.model;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +59,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
         notifyDataSetChanged();
     }
 
-    class UserViewHolder extends RecyclerView.ViewHolder {
+    class UserViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public final TextView usernameView;
         final UserListAdapter mAdapter;
         public User user;
@@ -69,6 +70,12 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
             usernameView = itemView.findViewById(R.id.username);
             this.userImage = itemView.findViewById(R.id.userimage);
             this.mAdapter = adapter;
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Log.i("AJB", "You clicked " + user.toString());
         }
     }
 }
